@@ -1,0 +1,11 @@
+<p>index.html.erb</p>
+
+<ul>
+<% @videos.each do |video| %>
+  <li>
+    <a href='<%= video.url %>'>
+      <%= video.title %>
+    </a>
+  </li>
+<% end %>
+</ul>
