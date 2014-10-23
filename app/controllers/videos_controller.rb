@@ -4,20 +4,22 @@ class VideosController < ApplicationController
     @videos = Video.all
   end
 
-  def create
-    @video = Video.new(video_params[:video])
-
-    respond_to do |f|
-      if @video.save
-        f.html { redirect_to @video }
-        f.json { render json: @video, status: :created, location: @video }
-      else
-        f.html { render action: 'new' }
-        f.json { render jsoon: @video.errors, status: :unprocessable_entity }
-      end
-    end
+  def new
   end
 
+  def create
+    binding.pry
+    # @video = Video.create({title: params[:title], url: params[:url]})
+    @video = Video.create({title: video_params[:title], url: video_params[:url]})
+    @title = params[:title]
+    @url = params[:url]
+    redirect_to root_path
+  end
+
+  def show
+    @url = params[:url]
+    @title = params[:title]
+  end
   private
 
   def video_params

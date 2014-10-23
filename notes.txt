@@ -1,0 +1,15 @@
+notes.txt
+
+figure out how to create end point
+  ie localhost:3000/videos/add_bookmarklet?=url+?=title
+
+vs
+
+use controller to respond to specific request formats
+
+  respond_to do |f|
+      f.html { redirect_to @video }
+      f.json { render json: @video, status: :created, location: @video }
+    end
+
+

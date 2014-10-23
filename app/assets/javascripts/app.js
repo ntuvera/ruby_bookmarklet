@@ -2,16 +2,16 @@ function alertTest(){
   alert('this is only a test');
 }
 
+// need to host externally
 function addVideo(){
-  $.ajax({
-    url: 'localhost:3000/videos',
+    $.ajax({
+    url: 'localhost:3000/videos/submit?video[title]='+ document.title +'&video[url='+ document.location.href +']',
     type: 'POST',
-    data: {video: {title: 'Shadow of Mordor', url: 'https://www.youtube.com/watch?v=GDfAIGxOSTw'} },
-    success: function(data){
-      console.log('data sent');
+    success: function(){
+      console.log('yay');
     },
     error: function(){
-      console.log('post denied, sucka');
+      console.log('boo');
     }
   })
 }
